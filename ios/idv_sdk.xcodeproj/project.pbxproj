@@ -15,6 +15,8 @@
 		7699B88040F8A987B510C191 /* libPods-idv_sdk-idv_sdkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-idv_sdk-idv_sdkTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A377691C238C14E63CA5A7ED /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */; };
+		E191D7CA2D4F9C30006C41FD /* IdvModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E191D7C92D4F9C30006C41FD /* IdvModule.swift */; };
+		E191D7CE2D4F9FDA006C41FD /* IdvModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D7CD2D4F9FDA006C41FD /* IdvModule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +47,10 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-idv_sdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-idv_sdk.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = idv_sdk/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-idv_sdk-idv_sdkTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idv_sdk-idv_sdkTests.release.xcconfig"; path = "Target Support Files/Pods-idv_sdk-idv_sdkTests/Pods-idv_sdk-idv_sdkTests.release.xcconfig"; sourceTree = "<group>"; };
-		E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = idv_sdk/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E191D7C92D4F9C30006C41FD /* IdvModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdvModule.swift; sourceTree = "<group>"; };
+		E191D7CC2D4F9DFE006C41FD /* idv_sdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "idv_sdk-Bridging-Header.h"; sourceTree = "<group>"; };
+		E191D7CD2D4F9FDA006C41FD /* IdvModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdvModule.m; sourceTree = "<group>"; };
+		E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = idv_sdk/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -97,6 +102,9 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
 				E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */,
+				E191D7C92D4F9C30006C41FD /* IdvModule.swift */,
+				E191D7CC2D4F9DFE006C41FD /* idv_sdk-Bridging-Header.h */,
+				E191D7CD2D4F9FDA006C41FD /* IdvModule.m */,
 			);
 			name = idv_sdk;
 			sourceTree = "<group>";
@@ -211,7 +219,7 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						LastSwiftMigration = 1120;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -399,7 +407,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				E191D7CA2D4F9C30006C41FD /* IdvModule.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				E191D7CE2D4F9FDA006C41FD /* IdvModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-idv_sdk-idv_sdkTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -445,6 +456,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-idv_sdk-idv_sdkTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = idv_sdkTests/Info.plist;
@@ -486,6 +498,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = idv_sdk;
+				SWIFT_OBJC_BRIDGING_HEADER = "idv_sdk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -512,6 +525,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = idv_sdk;
+				SWIFT_OBJC_BRIDGING_HEADER = "idv_sdk-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -590,10 +604,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -665,10 +676,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
