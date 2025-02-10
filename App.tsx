@@ -15,7 +15,8 @@ import {
   Text,
   useColorScheme,
   View,
-  NativeModules
+  NativeModules,
+  Button
 } from 'react-native';
 
 import {
@@ -26,7 +27,11 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+// android
 const { IdvModule } = NativeModules
+
+// ios
+// const { IDVBridge } = NativeModules;
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -65,15 +70,45 @@ function App(): React.JSX.Element {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  //android
+  const openNativeActivity = async () => {
+    try {
+      const result = await NativeModules.IdvModule.openNativeActivity();
+      console.log(result); // Log success message
+    } catch (error) {
+      console.error(error); // Log any errors
+    }
+  };
   useEffect(() => {
-    IdvModule.sayHelloToJava()
+    openNativeActivity()
   }, [])
 
+
+
+  // ios
+  const handlePress = async () => {
+    // try {
+    //   const authData = {
+    //     apiKey: "80d3b649-e43f-4067-a1e7-ac978dfdb21b",
+    //     apiSecret: "8cafa201c083fb3b5c36dea4f9e29899d36b652e",
+    //     userId: "test-user-id",
+    //   };
+    //   const result = await IDVBridge.initializeFramework(authData);
+    //   console.log(result); // Framework launched successfully
+    // } catch (error) {
+    //   console.error("Error launching framework:", error);
+    // }
+  };
+
+
+
   return (
-    <View style={{ flex: 1, backgroundColor: "blue" }}>
+    <View style={{
+      flex: 1, backgroundColor: "white", justifyContent: 'center',
+      alignItems: 'center',
+    }}>
 
-
-
+      {/* <Button title="Launch Framework" onPress={handlePress} /> */}
 
     </View>
   );

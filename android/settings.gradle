@@ -1,4 +1,19 @@
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS) // Change FAIL_ON_PROJECT_REPOS to PREFER_SETTINGS
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://jitpack.io"
+            credentials { username authToken }
+        }
+    }
+}
+
 rootProject.name = 'idv_sdk'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
+

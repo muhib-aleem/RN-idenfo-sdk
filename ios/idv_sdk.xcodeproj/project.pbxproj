@@ -17,6 +17,8 @@
 		A377691C238C14E63CA5A7ED /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */; };
 		E191D7CA2D4F9C30006C41FD /* IdvModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E191D7C92D4F9C30006C41FD /* IdvModule.swift */; };
 		E191D7CE2D4F9FDA006C41FD /* IdvModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E191D7CD2D4F9FDA006C41FD /* IdvModule.m */; };
+		E1EFA2D72D53B26400A8608C /* IDV.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1EFA2D62D53B26400A8608C /* IDV.xcframework */; };
+		E1EFA2D82D53B26400A8608C /* IDV.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E1EFA2D62D53B26400A8608C /* IDV.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +30,20 @@
 			remoteInfo = idv_sdk;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E1EFA2D92D53B26400A8608C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E1EFA2D82D53B26400A8608C /* IDV.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* idv_sdkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = idv_sdkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +66,7 @@
 		E191D7C92D4F9C30006C41FD /* IdvModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdvModule.swift; sourceTree = "<group>"; };
 		E191D7CC2D4F9DFE006C41FD /* idv_sdk-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "idv_sdk-Bridging-Header.h"; sourceTree = "<group>"; };
 		E191D7CD2D4F9FDA006C41FD /* IdvModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IdvModule.m; sourceTree = "<group>"; };
+		E1EFA2D62D53B26400A8608C /* IDV.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IDV.xcframework; path = ../../../../Downloads/IDV.xcframework; sourceTree = "<group>"; };
 		E4C46416B8547EE2F322AA8E /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = idv_sdk/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -68,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C80B921A6F3F58F76C31292 /* libPods-idv_sdk.a in Frameworks */,
+				E1EFA2D72D53B26400A8608C /* IDV.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +130,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E1EFA2D62D53B26400A8608C /* IDV.xcframework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				5DCACB8F33CDC322A6C60F78 /* libPods-idv_sdk.a */,
 				19F6CBCC0A4E27FBF8BF4A61 /* libPods-idv_sdk-idv_sdkTests.a */,
@@ -196,6 +215,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				E1EFA2D92D53B26400A8608C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -481,11 +501,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-idv_sdk.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = idv_sdk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,6 +519,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.idenfo.idvsdk;
 				PRODUCT_NAME = idv_sdk;
 				SWIFT_OBJC_BRIDGING_HEADER = "idv_sdk-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -509,10 +532,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-idv_sdk.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = idv_sdk/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -524,6 +549,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = com.idenfo.idvsdk;
 				PRODUCT_NAME = idv_sdk;
 				SWIFT_OBJC_BRIDGING_HEADER = "idv_sdk-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -604,7 +630,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -676,7 +705,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

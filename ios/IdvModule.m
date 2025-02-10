@@ -10,5 +10,7 @@
 #import "React/RCTBridgeModule.h"
 @interface
 RCT_EXTERN_MODULE(IdvModule, NSObject)
-RCT_EXTERN_METHOD(sayHelloToJava)
+RCT_EXTERN_METHOD(initializeFramework:(NSDictionary *)authData
+  resolver:(RCTPromiseResolveBlock)resolver
+  rejecter:(RCTPromiseRejectBlock)rejecter)
 @end
